@@ -1,1 +1,1 @@
-export const FILL_ME = 'FILL_ME';
+export const TOGGLE_WORK_ACCORDION = 'TOGGLE_WORK_ACCORDION';
