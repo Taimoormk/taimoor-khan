@@ -1,1 +1,6 @@
+export const LOAD_APP = 'LOAD_APP';
+export const LOAD_APP_ATTEMPT = 'LOAD_APP_ATTEMPT';
+export const LOAD_APP_SUCCESS = 'LOAD_APP_SUCCESS';
+export const LOAD_APP_FAIL = 'LOAD_APP_FAIL';
+
 export const TOGGLE_WORK_ACCORDION = 'TOGGLE_WORK_ACCORDION';
