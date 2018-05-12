@@ -1,0 +1,12 @@
+#home {
+  display: flex;
+  height: 100vh;
+  .side-bar {
+    background-color: #1b1c1d;
+    flex: 0 1 30%;
+  }
+  .main-content {
+    background-color: #ffffff;
+    flex: 0 1 70%;
+  }
+}

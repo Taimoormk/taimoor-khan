@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "prefer-destructuring": 0,
+    "react/no-array-index-key": 0
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
