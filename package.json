@@ -4,6 +4,7 @@
   "description": "ReactJS project for Taimoor Khan professional profile",
   "main": "index.js",
   "engines": {
+    "node": "10.0.0",
     "npm": "6.0.0"
   },
   "scripts": {
