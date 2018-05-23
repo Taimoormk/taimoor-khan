@@ -10,3 +10,20 @@
     flex: 0 1 70%;
   }
 }
+
+// Styles for mobile devices
+
+@media only screen 
+and (min-width: 320px)
+and (max-width: 1000px) {
+  #home {
+    display: flex;
+    flex-direction: column;
+    .side-bar {
+      flex: 0 1 100%;
+    }
+    .main-content {
+      flex: 0 1 100%;
+    }
+  }
+}

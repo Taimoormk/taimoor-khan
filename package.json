@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.dev.js",
-    "prod": "webpack --config webpack.config.prod.js -p"
+    "dev:node": "webpack --config webpack.config.dev.js",
+    "prod": "webpack --config webpack.config.prod.js -p",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "prod:watch": "webpack --config webpack.config.prod.js -w",
+    "start": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +25,8 @@
   "dependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "material-ui": "^1.0.0-beta.43",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-aria-modal": "^2.12.1",
