@@ -15,7 +15,7 @@
     "test:watch": "jest --watch",
     "prod:watch": "webpack --config webpack.config.prod.js -w",
     "nodemon": "nodemon server/index.js",
-    "postinstall": "webpack.config.prod.js -p",
+    "postinstall": "webpack --config webpack.config.prod.js -p",
     "start": "node server/index.js"
   },
   "repository": {
