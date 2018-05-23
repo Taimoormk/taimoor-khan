@@ -6,7 +6,7 @@ var app = express();
 require('./middleware')(app);
 
 // run routes
-require('./routes')(app);
+// require('./routes')(app);
 
 var port = process.env.PORT || 3000;
 
