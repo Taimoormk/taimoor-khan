@@ -10,7 +10,9 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "prod:watch": "webpack --config webpack.config.prod.js -w",
-    "start": "nodemon server/index.js"
+    "nodemon": "nodemon server/index.js",
+    "postinstall": "webpack -p",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
