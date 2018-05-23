@@ -4,8 +4,8 @@
   "description": "ReactJS project for Taimoor Khan professional profile",
   "main": "index.js",
   "engines": {
-    "node": "10.0.0",
-    "npm": "6.0.0"
+    "node": "9.11.1",
+    "npm": "5.6.0"
   },
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.dev.js",
