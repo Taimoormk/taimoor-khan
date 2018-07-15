@@ -1,13 +1,10 @@
 module.exports = {
-  entry: [
-    'babel-polyfill',
-    './src/js/index.jsx',
-    './src/css/styles.scss'
-  ],
+  mode: "development",
+  entry: ["babel-polyfill", "./src/js/index.jsx", "./src/css/styles.scss"],
   output: {
     path: `${__dirname}/dist/js`,
-    filename: 'bundle.js',
-    publicPath: '/js'
+    filename: "bundle.js",
+    publicPath: "/js"
   },
 
   module: {
@@ -17,14 +14,17 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['env', 'react'],
-              plugins: ["transform-object-rest-spread", "transform-class-properties"]
+              presets: ["env", "react"],
+              plugins: [
+                "transform-object-rest-spread",
+                "transform-class-properties"
+              ]
             }
           },
           {
-            loader: 'eslint-loader'
+            loader: "eslint-loader"
           }
         ]
       },
@@ -33,23 +33,26 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['env'],
-              plugins: ["transform-object-rest-spread", "transform-class-properties"]
+              presets: ["env"],
+              plugins: [
+                "transform-object-rest-spread",
+                "transform-class-properties"
+              ]
             }
           },
           {
-            loader: 'eslint-loader'
+            loader: "eslint-loader"
           }
         ]
       },
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               url: false
             }
@@ -59,14 +62,14 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               url: false
             }
           },
-          'sass-loader'
+          "sass-loader"
         ]
       }
     ]
@@ -77,9 +80,9 @@ module.exports = {
     historyApiFallback: true
   },
 
-  devtool: 'source-map',
+  devtool: "source-map",
 
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: [".js", ".jsx"]
   }
 };

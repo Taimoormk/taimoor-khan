@@ -1,5 +1,5 @@
-var path = require('path');
+var path = require("path");
 
 module.exports = (req, res) => {
-	res.sendFile(path.join(__dirname, '../../dist/index.html'));
+  res.sendFile(path.join(__dirname, "../../dist/index.html"));
 };

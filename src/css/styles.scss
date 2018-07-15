@@ -1,12 +1,14 @@
-@import '/partials/globals';
-@import '/partials/mixins';
-@import '/partials/variables';
+@import "/partials/globals";
+@import "/partials/mixins";
+@import "/partials/variables";
 
-@import '/modules/app';
-@import '/modules/home';
+@import "/modules/app";
+@import "/modules/home";
 
-@import '/modules/workexperience';
-@import '/modules/jobtags';
-@import '/modules/portfolio';
-@import '/modules/education';
-@import '/modules/topicscovered';
+@import "/modules/contactdetails";
+@import "/modules/workexperience";
+@import "/modules/jobtags";
+@import "/modules/portfolio";
+@import "/modules/education";
+@import "/modules/topicscovered";
+@import "./modules/reactworkshopstudentdetails.scss";

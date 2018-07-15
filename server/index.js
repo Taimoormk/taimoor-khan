@@ -1,15 +1,15 @@
 // create app
-var express = require('express');
+var express = require("express");
 var app = express();
 
 // run middleware
-require('./middleware')(app);
+require("./middleware")(app);
 
 // run routes
-require('./routes')(app);
+require("./routes")(app);
 
 var port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log('Running on port', port);
-})
+  console.log("Running on port", port);
+});

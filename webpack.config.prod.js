@@ -1,17 +1,16 @@
-var path = require('path')
-const glob = require('glob-all')
-var PurifyCSSPlugin= require('purifycss-webpack');
+const path = require("path");
+const glob = require("glob-all");
+const PurifyCSSPlugin = require("purifycss-webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  entry: [
-    'babel-polyfill',
-    './src/js/index.jsx',
-    './src/css/styles.scss'
-  ],
+  mode: "production",
+  entry: ["babel-polyfill", "./src/js/index.jsx", "./src/css/styles.scss"],
   output: {
     path: `${__dirname}/dist/js`,
-    filename: 'bundle.js',
+    filename: "bundle.js"
   },
 
   //watch: true,
@@ -22,10 +21,13 @@ module.exports = {
         test: /\.jsx$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['env', 'react'],
-            plugins: ["transform-object-rest-spread", "transform-class-properties" ]
+            presets: ["env", "react"],
+            plugins: [
+              "transform-object-rest-spread",
+              "transform-class-properties"
+            ]
           }
         }
       },
@@ -33,17 +35,20 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['env'],
-            plugins: ["transform-object-rest-spread", "transform-class-properties" ]
+            presets: ["env"],
+            plugins: [
+              "transform-object-rest-spread",
+              "transform-class-properties"
+            ]
           }
         }
       },
       {
-        test:/\.css$/,
+        test: /\.css$/,
         // use: ExtractTextPlugin.extract({
-        //   use: [ 
+        //   use: [
         //     {
         //       loader: 'css-loader',
         //       options: {
@@ -52,15 +57,12 @@ module.exports = {
         //     }
         //   ]
         // })
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader"
-        ]
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
       {
-        test:/\.scss$/,
+        test: /\.scss$/,
         // use: ExtractTextPlugin.extract({
-        //   use: [ 
+        //   use: [
         //     {
         //       loader: 'css-loader',
         //       options: {
@@ -72,32 +74,43 @@ module.exports = {
         // })
         use: [
           MiniCssExtractPlugin.loader,
-            {
-              loader: 'css-loader',
-              options: {
-                url: false
-              }
-            },
-            'sass-loader'
+          {
+            loader: "css-loader",
+            options: {
+              url: false
+            }
+          },
+          "sass-loader"
         ]
       }
     ]
   },
 
   resolve: {
-    extensions:['.js', '.jsx']
+    extensions: [".js", ".jsx"]
   },
 
   plugins: [
-    new PurifyCSSPlugin({
-      paths: glob.sync([
-        path.join(__dirname, 'dist/index.html'),
-        path.join(__dirname, 'src/js/*.js')
-      ])
-    }),
+    // new PurifyCSSPlugin({
+    //   paths: glob.sync([
+    //     path.join(__dirname, "dist/index.html"),
+    //     path.join(__dirname, "src/js/*.js")
+    //   ])
+    // }),
     new MiniCssExtractPlugin({
       filename: "../css/styles.css",
       chunkFilename: "id.css"
     })
-  ]
+  ],
+
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  }
 };
